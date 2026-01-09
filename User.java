@@ -3,6 +3,8 @@ import java.time.LocalDate;
 public class User {
     protected String name;
     protected LocalDate dob;
+    protected LocalDate today = LocalDate.now();
+
 
     public User(){
         name = null;
@@ -19,7 +21,16 @@ public class User {
         System.out.println("Date of Birth: " + dob);
 
     }
-    void getNow(){
-        System.out.println(LocalDate.now());;
+//    void getNow(){
+//        System.out.println(LocalDate.now());;
+//    }
+
+    Boolean isBirthday(){
+        return today.getMonth() == dob.getMonth() && today.getDayOfMonth() == dob.getDayOfMonth();
+    }
+
+    public void displayHappyBirthday() {
+        if(isBirthday())
+            System.out.println("Happy birthday " + this.name + "!");
     }
 }
