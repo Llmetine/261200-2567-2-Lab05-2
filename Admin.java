@@ -15,12 +15,18 @@ public class Admin extends User {
         if(full==true){
             super.displayInfo();
             System.out.println("User type: admin.");
-            System.out.print("Today's date: ");
-            super.getNow();
+            System.out.print("Today's date: "+ today.now());
         }
         else{
             System.out.println("Name: "+this.name);
         }
 
     }
+    public void displayHappyBirthday() {
+        int age = today.getYear()-dob.getYear();
+        if(isBirthday()) {
+            System.out.println("Happy birthday " + this.name + "! You are " + age + "!");
+        }
+    }
+
 }
